@@ -6,7 +6,7 @@ Subjective data was collected in the context of _wellness_, _training load_, _ga
 
 Overall, the SoccerMon dataset contains 54,485 subjective reports and 10,075 objective measurement sessions, with 6,248,770,794 GPS positions measured in the field. Initial experiments have shown how different subjective and objective parameters are correlated, and have demonstrated the potential benefits of AI-based athlete performance forecasting applications. SoccerMon can play a valuable role in developing better analytical models, not only for soccer but also for other sports where athlete mobility and subjective wellbeing provide important insights into performance.
 
-# Requirements
+## Requirements
 
 Make sure you have Python version 3.7 (minimum) before you start the installation. You can check your Python version on the command line/terminal/shell. 
 
