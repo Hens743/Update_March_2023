@@ -35,7 +35,7 @@ path_to_teams = project_root_dir / "data/pickles/teams.pkl"
 path_to_models = project_root_dir / "src/utils"
 
 # Function to load pickled data from a file
-@st.cache_data(ttl=600)
+@st.cache(ttl=600)
 def load_in_pickles(path_to_data):
     try:
         with open(path_to_data, 'rb') as file:
@@ -45,7 +45,7 @@ def load_in_pickles(path_to_data):
         return {}  # Return an empty dict to prevent further errors
 
 # Function to load in all the ARIMA models from a directory of pickled models
-@st.cache_data(ttl=600)
+@st.cache(ttl=600)
 def load_in_arima_models(path_to_arima):
     all_files = os.listdir(path_to_arima)
     models = {}
