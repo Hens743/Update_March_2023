@@ -1,16 +1,16 @@
-pyarrow>=15.0.0
-pip >= 24.0
-streamlit>=1.32.0
-matplotlib>=3.8.3
-numpy>=1.26.4
-pandas>=2.2.1
-plotly>=5.19
-scikit-learn>=1.4.1
-seaborn>=0.13.2
-statsmodels>=0.14.1
+pyarrow
+streamlit
+matplotlib
+numpy
+pandas
+plotly
+scikit-learn
+seaborn
+statsmodels
 streamlit-aggrid
-haversine>=2.8.1
-missingno>=0.5.2
-folium >= 0.14.0 
-streamlit-folium >= 0.18.0
-streamlit-pandas-profiling >= 0.1.3
+haversine
+missingno
+folium  
+streamlit-folium 
+streamlit-pandas-profiling  
+mysql-connector-python
