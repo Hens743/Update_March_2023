@@ -86,7 +86,6 @@
 #     page_names_to_funcs[selected_page](teams, models)
 # else:
     page_names_to_funcs[selected_page]()
-
 import os
 import sys
 from pathlib import Path
