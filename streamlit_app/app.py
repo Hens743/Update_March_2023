@@ -8,13 +8,13 @@ import pickle
 project_root_dir = Path(__file__).parent.parent
 sys.path.append(str(project_root_dir))
 
-# Now import the remaining modules
-from dataset_statistics import dataset_statistics
-from player_information import player_information
-from team_information import team_information
-from team_information_db import team_information_db
-from gps_information import gps_information
-from player_gps_report import player_gps_report
+# Import the modules from the appropriate directories
+from streamlit_app.page_functions.dataset_stats import dataset_statistics
+from streamlit_app.page_functions.player_stats import player_information
+from streamlit_app.page_functions.team_stats import team_information
+from streamlit_app.page_functions.queries import team_information_db
+from streamlit_app.page_functions.gps_stats import gps_information
+from streamlit_app.page_functions.player_gps_report import player_gps_report
 
 # Configuration of the page
 st.set_page_config(
@@ -31,7 +31,7 @@ st.set_page_config(
 
 # Set the paths to the pickled data
 path_to_teams = project_root_dir / "data/pickles/teams.pkl"
-path_to_models = project_root_dir / "utils"  # Adjusted path assuming 'utils' is not within 'src'
+path_to_models = project_root_dir / "arima_forecasting"
 
 @st.cache_data(ttl=600)
 def load_in_pickles(path_to_data):
