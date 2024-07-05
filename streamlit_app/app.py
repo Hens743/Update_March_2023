@@ -5,26 +5,17 @@ import streamlit as st
 import pickle
 
 # Add the project root directory to the Python path
-project_root_dir = Path(__file__).resolve().parent.parent
+project_root_dir = Path(__file__).parent.parent
 sys.path.append(str(project_root_dir))
 
-# Print statements for debugging
-print(f"Current working directory: {os.getcwd()}")
-print(f"Project root directory: {project_root_dir}")
-print(f"Python path: {sys.path}")
-
 # Now import the modules
-try:
-    from src.pages.homepage import homepage
-    from src.pages.dataset_statistics import dataset_statistics
-    from src.pages.player_information import player_information
-    from src.pages.team_information import team_information
-    from src.pages.team_information_db import team_information_db
-    from src.pages.gps_information import gps_information
-    from src.pages.player_gps_report import player_gps_report
-except ModuleNotFoundError as e:
-    print(f"Error: {e}")
-    sys.exit(1)
+from src.pages.homepage import homepage
+from src.pages.dataset_statistics import dataset_statistics
+from src.pages.player_information import player_information
+from src.pages.team_information import team_information
+from src.pages.team_information_db import team_information_db
+from src.pages.gps_information import gps_information
+from src.pages.player_gps_report import player_gps_report
 
 # Configuration of the page
 st.set_page_config(
