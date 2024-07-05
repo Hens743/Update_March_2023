@@ -10,7 +10,7 @@ sys.path.append(str(project_root_dir))
 
 # Import the modules from the appropriate directories
 
-from streamlit_app.page_functions.player_stats import player_information
+from streamlit_app.page_functions.player_stats import get_player
 from streamlit_app.page_functions.team_stats import team_information
 from streamlit_app.page_functions.queries import team_information_db
 from streamlit_app.page_functions.gps_stats import gps_information
