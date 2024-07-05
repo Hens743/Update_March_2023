@@ -86,12 +86,27 @@
 #     page_names_to_funcs[selected_page](teams, models)
 # else:
     page_names_to_funcs[selected_page]()
+
 import os
 import sys
-import pickle
 from pathlib import Path
 
 import streamlit as st
+
+# Add the project root directory to the Python path
+project_root_dir = Path(__file__).parent.parent
+sys.path.append(str(project_root_dir))
+
+# Now import the modules
+from src.pages.homepage import homepage
+from src.pages.dataset_statistics import dataset_statistics
+from src.pages.player_information import player_information
+from src.pages.team_information import team_information
+from src.pages.team_information_db import team_information_db
+from src.pages.gps_information import gps_information
+from src.pages.player_gps_report import player_gps_report
+
+import pickle
 
 # Configuration of the page
 st.set_page_config(
@@ -105,19 +120,6 @@ st.set_page_config(
         'About': "Please read the README.md file for more information about this Simula Research Lab project"
     }
 )
-
-# Add the parent directory to the Python path to ensure imports work as expected
-project_root_dir = Path(__file__).parent.parent
-sys.path.append(str(project_root_dir))
-
-# Dynamically import modules using relative paths
-from src.pages.homepage import homepage
-from src.pages.dataset_statistics import dataset_statistics
-from src.pages.player_information import player_information
-from src.pages.team_information import team_information
-from src.pages.team_information_db import team_information_db
-from src.pages.gps_information import gps_information
-from src.pages.player_gps_report import player_gps_report
 
 # Set the paths to the pickled data
 path_to_teams = project_root_dir / "data/pickles/teams.pkl"
@@ -171,3 +173,4 @@ if selected_page in ["Player Information", "Team Information"]:
     page_names_to_funcs[selected_page](teams, models)
 else:
     page_names_to_funcs[selected_page]()
+
