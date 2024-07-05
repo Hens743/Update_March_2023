@@ -86,7 +86,6 @@
 #     page_names_to_funcs[selected_page](teams, models)
 # else:
     page_names_to_funcs[selected_page]()
-
 import os
 import sys
 import pickle
@@ -152,6 +151,7 @@ def get_player(teams, player_name):
 # Load in the pickled data and models
 models = load_in_arima_models(path_to_models)
 teams = load_in_pickles(path_to_teams)
+
 # Define a dictionary of page names and associated functions
 page_names_to_funcs = {
     "Homepage": homepage,
