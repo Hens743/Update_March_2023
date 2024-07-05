@@ -9,12 +9,12 @@ project_root_dir = Path(__file__).parent.parent
 sys.path.append(str(project_root_dir))
 
 # Import the modules from the appropriate directories
-
-from streamlit_app.page_functions.player_stats import get_player
-from streamlit_app.page_functions.team_stats import team_information
+from streamlit_app.page_functions.player_stats import player_statistics
+from streamlit_app.page_functions.team_stats import team_statistics
 from streamlit_app.page_functions.queries import team_information_db
 from streamlit_app.page_functions.gps_stats import gps_information
 from streamlit_app.page_functions.player_gps_report import player_gps_report
+from streamlit_app.page_functions.dataset_stats import dataset_statistics
 
 # Configuration of the page
 st.set_page_config(
@@ -54,10 +54,6 @@ def load_in_arima_models(path_to_arima):
             st.error(f"Error loading {file}: {e}")
     return models
 
-def get_player(teams, player_name):
-    all_players = {**teams["TeamA"].players, **teams["TeamB"].players}
-    return all_players.get(player_name)
-
 # Load in the pickled data and models
 models = load_in_arima_models(path_to_models)
 teams = load_in_pickles(path_to_teams)
@@ -65,8 +61,8 @@ teams = load_in_pickles(path_to_teams)
 # Define a dictionary of page names and associated functions
 page_names_to_funcs = {
     "Dataset Statistics": dataset_statistics,
-    "Player Information": player_information,
-    "Team Information": team_information,
+    "Player Information": player_statistics,
+    "Team Information": team_statistics,
     "Team Information - DB": team_information_db,
     "GPS Information": gps_information,
     "Player GPS Report": player_gps_report
