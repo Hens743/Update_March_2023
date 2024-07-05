@@ -4,7 +4,7 @@ import matplotlib.font_manager
 import seaborn as sns
 import streamlit as st
 import datetime
-import mysql-connector-python
+#import mysql-connector-python
 
 
 @st.cache_resource
