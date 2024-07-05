@@ -170,7 +170,9 @@ selected_page = st.sidebar.selectbox("Select a page", list(page_names_to_funcs.k
 
 # Call the selected function with the teams and models if required
 if selected_page in ["Player Information", "Team Information"]:
-    page_names_to_funcs[selected_page](teams, models)
+    page_names_to_funcs[selected_page](teams, models)  # Fix the indentation here
 else:
     page_names_to_funcs[selected_page]()
+
+
 
