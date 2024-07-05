@@ -86,11 +86,13 @@
 #     page_names_to_funcs[selected_page](teams, models)
 # else:
     page_names_to_funcs[selected_page]()
+
+
 import os
 import sys
 from pathlib import Path
-
 import streamlit as st
+import pickle
 
 # Add the project root directory to the Python path
 project_root_dir = Path(__file__).parent.parent
@@ -104,8 +106,6 @@ from src.pages.team_information import team_information
 from src.pages.team_information_db import team_information_db
 from src.pages.gps_information import gps_information
 from src.pages.player_gps_report import player_gps_report
-
-import pickle
 
 # Configuration of the page
 st.set_page_config(
@@ -124,7 +124,7 @@ st.set_page_config(
 path_to_teams = project_root_dir / "data/pickles/teams.pkl"
 path_to_models = project_root_dir / "src/utils"
 
-@st.cache(ttl=600)
+@st.cache_data(ttl=600)
 def load_in_pickles(path_to_data):
     try:
         with open(path_to_data, 'rb') as file:
@@ -133,7 +133,7 @@ def load_in_pickles(path_to_data):
         st.error(f"Error loading {path_to_data}: {e}")
         return {}
 
-@st.cache(ttl=600)
+@st.cache_data(ttl=600)
 def load_in_arima_models(path_to_arima):
     models = {}
     for file in os.listdir(path_to_arima):
@@ -169,9 +169,10 @@ selected_page = st.sidebar.selectbox("Select a page", list(page_names_to_funcs.k
 
 # Call the selected function with the teams and models if required
 if selected_page in ["Player Information", "Team Information"]:
-    page_names_to_funcs[selected_page](teams, models)  # Fix the indentation here
+    page_names_to_funcs[selected_page](teams, models)
 else:
     page_names_to_funcs[selected_page]()
+
 
 
 
